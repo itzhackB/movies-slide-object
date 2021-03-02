@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="main-container"></p>
+
+    <script>
+        //  צרו מערך של 12 אובייקטים, כל אובייקט מכיל שם סרט, שנה ותמונה, הציגו את המערך על המסך בחלוקה של 3*4 
+
+        let container = document.getElementById("main-container");
+
+        let objectArrayImages = [
+            {
+                id:"movie1",
+                link:"https://en.wikipedia.org/wiki/Brawl_in_Cell_Block_99",
+                rating:7/10,
+                movie: "Brawl in Cell Block 99",
+                year: 2017,
+                img: "https://m.media-amazon.com/images/M/MV5BZDA0YjA4ODEtMTZjMC00ODIyLWE5MmQtMzc4M2IzMjE0MWZkXkEyXkFqcGdeQXVyMTUzNDkzNDY@._V1_UX67_CR0,0,67,98_AL_.jpg"
+            },
+
+            {
+                id:"movie2",
+                link:"https://en.wikipedia.org/wiki/Brawl_in_Cell_Block_99",
+                rating:6/10,
+                movie: "Le'an niflosh akhshav?",
+                year: 2015,
+                img: "https://m.media-amazon.com/images/M/MV5BMTU3MjI2ODkzMF5BMl5BanBnXkFtZTgwMjkzMjY5NzE@._V1_UX67_CR0,0,67,98_AL_.jpg"
+            },
+
+            {
+                id:"movie3",
+                link:"https://en.wikipedia.org/wiki/Michael_Moore_in_TrumpLand",
+                rating:9/10,
+                movie: "Michael Moore in TrumpLand",
+                year: 2016,
+                img: "https://m.media-amazon.com/images/M/MV5BNWY5MDI5MDYtMWUzYi00YmU3LWJmNTctNmUwYTBiOGIwNGVjXkEyXkFqcGdeQXVyNDQzMDg4Nzk@._V1_UX67_CR0,0,67,98_AL_.jpg"
+            },
+
+            {
+                id:"movie4",
+                link:"https://en.wikipedia.org/wiki/In_Search_of_Greatness",
+                rating:7/10,
+                movie: "In Search of Greatness",
+                year: 2018,
+                img: "https://m.media-amazon.com/images/M/MV5BZGRhNTJmMTMtMDNiNS00NDc1LWE3MjgtMmY5MTEwZjdkODBjXkEyXkFqcGdeQXVyNTA0MDc3NDk@._V1_UX67_CR0,0,67,98_AL_.jpg"
+            },
+
+            {
+                id:"movie5",
+                link:"https://en.wikipedia.org/wiki/The_Battle_of_Versailles_Fashion_Show",
+                rating:10/10,
+                movie: "Battle at Versailles",
+                year: 2016,
+                img: "https://m.media-amazon.com/images/M/MV5BZTEyYzIwYWYtN2JhMy00NTIxLWJmYjctYzhlYmZmOTQyYmI3XkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_UY98_CR3,0,67,98_AL_.jpg"
+            },
+
+            {
+                id:"movie6",
+                link:"https://www.imdb.com/title/tt7065674/",
+                rating:6/10,
+                movie: "Maria Sharapova: The Point",
+                year: 2017,
+                img: "https://m.media-amazon.com/images/M/MV5BMGM0NjBlZjktODM3My00YTkyLThjOTYtYjQzZDdjYjBjNDkxXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UY98_CR1,0,67,98_AL_.jpg"
+            },
+
+            {
+                id:"movie7",
+                link:"https://en.wikipedia.org/wiki/Judas_and_the_Black_Messiah",
+                rating:8/0,
+                movie: "Judas and the Black Messiah",
+                year: 2021,
+                img: "https://m.media-amazon.com/images/M/MV5BOTYwNWNmM2UtNDhlOC00ZGQzLWI1MTMtMmZlMTFjM2Y1N2ZhXkEyXkFqcGdeQXVyMTY5Nzc4MDY@._V1_UX45_CR0,0,45,67_AL_.jpg"
+            },
+
+            {
+                id:"movie8",
+                link:"https://www.imdb.com/title/tt7126948/",
+                rating:5/10,
+                movie: "Wonder Woman 1984",
+                year: 2020,
+                img: "https://m.media-amazon.com/images/M/MV5BYTlhNzJjYzYtNGU3My00ZDI5LTgzZDUtYzllYjU1ZmU0YTgwXkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_UY67_CR0,0,45,67_AL_.jpg"
+            },
+
+            {
+                id:"movie9",
+                link:"https://www.imdb.com/title/tt6857376/",
+                rating:7/10,
+                movie: "Palmer",
+                year: 2021,
+                img: "https://m.media-amazon.com/images/M/MV5BYTZhNzM4MDktYWUwMC00NTE1LTlkN2UtM2Y5ODIwYjZmNTA2XkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_UY67_CR0,0,45,67_AL_.jpg"
+            },
+
+            {
+                id:"movie10",
+                link:"https://www.imdb.com/title/tt0974015/releaseinfo",
+                rating:8/10,
+                movie: "Ligat ha'tzedek",
+                year: 2017,
+                img: "https://m.media-amazon.com/images/M/MV5BYWVhZjZkYTItOGIwYS00NmRkLWJlYjctMWM0ZjFmMDU4ZjEzXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UY67_CR0,0,45,67_AL_.jpg"
+            },
+
+            {
+                id:"movie11",
+                link:"https://en.wikipedia.org/wiki/To_All_the_Boys_I%27ve_Loved_Before_(film)",
+                rating:9/10,
+                movie: "To All the Boys I've Loved Before",
+                year: 2018,
+                img: "https://m.media-amazon.com/images/M/MV5BMjQ3NjM5MTAzN15BMl5BanBnXkFtZTgwODQzMDAwNjM@._V1_UX45_CR0,0,45,67_AL_.jpg"
+            },
+
+            {
+                id:"movie12",
+                link:"https://en.wikipedia.org/wiki/Silk_Road_(2021_film)",
+                rating:8/10,
+                movie: "Silk Road",
+                year: 2021,
+                img: "https://m.media-amazon.com/images/M/MV5BZjM0NzMyMjUtYTE0ZS00YWNhLWFjMTItZTAwYWJkOGI5MGY3XkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_UY67_CR0,0,45,67_AL_.jpg"
+            }
+
+        ];
+
+        for (const movieItem of objectArrayImages) {
+            container.innerHTML += `<div id="card${movieItem.id}">
+                <h1>Movie Name:<br>${movieItem.movie}</h1>
+                <h2>Year:${movieItem.year}</h2>
+                <h2>Rating:${movieItem.rating}</h2>
+                
+                
+                </div>`
+
+
+            // for (const movieKey in movieItem) {
+            //     if (movieKey != "img") {
+            //         document.getElementById(`card${movieItem.id}`).innerHTML += `<h1>${movieItem[movieKey]}</h1>`
+            //     }
+            // }
+
+            document.getElementById(`card${movieItem.id}`).innerHTML += ` <a href=${movieItem.link}> <img src=${movieItem.img}/></a> <br> <p>click on the image for wiki link</p>`
+        }
+
+
+    </script>
+
+</body>
+
+</html>
